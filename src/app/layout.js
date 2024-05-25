@@ -1,5 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import React from 'react';
+import SearchAppBar from "@/components/Navbar/SearchAppBar";
+import AuthProvider from "@/Providers/AuthProvider";
+import { useRouter } from 'next/navigation';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,9 +13,55 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // const router = useRouter();
+  // const { user } = useContext(AuthContext);
+
+  // React.useEffect(() => {
+  //   if (!user) {
+  //     router.push('/login');
+  //   }
+  // }, [user, router]);
+ 
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AuthProvider>
+        <SearchAppBar></SearchAppBar>
+        {children}
+        </AuthProvider>
+        </body>
     </html>
   );
 }
+
+// import React, { useContext } from 'react';
+// import dynamic from 'next/dynamic'; // Import dynamic from next/dynamic
+// import SearchAppBar from '@/components/Navbar/SearchAppBar';
+// import AuthProvider from '@/Providers/AuthProvider';
+// import { AuthContext } from '@/Providers/AuthProvider';
+
+// // Dynamic import of useRouter to ensure it's only used on the client side
+// const useRouterClient = dynamic(() => import('next/router'), { ssr: false });
+
+// export default function RootLayout({ children }) {
+//   // Use useRouterClient instead of useRouter
+//   const router = useRouterClient();
+//   const { user } = useContext(AuthContext);
+
+//   // useEffect(() => {
+//     if (!user) {
+//       router.push('/login');
+//     }
+//   // }, [user, router]);
+ 
+//   return (
+//     <html lang="en">
+//       <body>
+//         <AuthProvider>
+//           <SearchAppBar />
+//           {children}
+//         </AuthProvider>
+//       </body>
+//     </html>
+//   );
+// }
