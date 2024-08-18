@@ -2,12 +2,10 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useRouter } from "next/navigation";
-// import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-// import SocialLogin from "../../components/SocialLogin/SocialLogin";
+
 const Login = () => {
-//   const [disabled, setDisabled] = useState(true);
   const { signIn } = useContext(AuthContext);
   const router = useRouter()
   // const navigate = useNavigate();
@@ -37,24 +35,16 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      // navigate(from, {replace: true})
       router.push('/')
       localStorage.setItem('email', email);
     });
   };
 
-//   const handleValidateCaptcha = (e) => {
-//     const user_captcha_value = e.target.value;
-//     if (validateCaptcha(user_captcha_value)) {
-//       setDisabled(false);
-//     }
-//   };
+//   
   return (
     <>
-      {/* <Helmet>
-        <title>Bistro Boss | Login</title>
-      </Helmet> */}
-      <div className="hero min-h-screen lg:min-h-[550px] bg-base-200">
+     
+      <div className="hero min-h-screen lg:min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
@@ -95,20 +85,7 @@ const Login = () => {
                   </a>
                 </label>
               </div>
-              {/* <div className="form-control">
-                <label className="label">
-                  <LoadCanvasTemplate />
-                </label>
-                <input
-                  type="text"
-                  name="captcha"
-                  onBlur={handleValidateCaptcha}
-                  placeholder="Type the text above"
-                  className="input input-bordered"
-                  required
-                />
-              </div> */}
-              {/* TODO: apply disabled for re captcha */}
+              
               <div className="form-control mt-6">
                 <input
                   disabled={false}
@@ -118,15 +95,7 @@ const Login = () => {
                 />
               </div>
             </form>
-            {/* <p className="mx-auto">
-              <small>
-                New here?{" "}
-                <Link className="text-blue-600" to={"/signUp"}>
-                  create an account
-                </Link>
-              </small>
-            </p> */}
-            {/* <SocialLogin></SocialLogin> */}
+            
           </div>
         </div>
       </div>

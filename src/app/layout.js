@@ -4,6 +4,8 @@ import React from 'react';
 import SearchAppBar from "@/components/Navbar/SearchAppBar";
 import AuthProvider from "@/Providers/AuthProvider";
 import { useRouter } from 'next/navigation';
+import { useLocation } from "react-router-dom";
+import Navbar from "@/components/Navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,20 +15,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // const router = useRouter();
-  // const { user } = useContext(AuthContext);
-
-  // React.useEffect(() => {
-  //   if (!user) {
-  //     router.push('/login');
-  //   }
-  // }, [user, router]);
  
   return (
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-        <SearchAppBar></SearchAppBar>
+        {/* <SearchAppBar></SearchAppBar> */}
+        <Navbar></Navbar>
+        
         {children}
         </AuthProvider>
         </body>

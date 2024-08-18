@@ -44,7 +44,7 @@ const Users = () => {
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td >{user.rules}</td>
+                <td >{user.role}</td>
                 <td className="text-center">
                   <button className="btn btn-md btn-active btn-primary">
                     Edit

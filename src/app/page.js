@@ -1,23 +1,18 @@
-import LocalStorage from "@/components/LocalStorage/LocalStorage";
 import OrdersDataCards from "@/components/OrdersDataCards/OrdersDataCards";
-import PieChartWithCustomizedLabel from "@/components/PieChartWithCustomizedLabel/PieChartWithCustomizedLabel";
+// import PieChartWithCustomizedLabel from "@/components/PieChartWithCustomizedLabel/PieChartWithCustomizedLabel";
 import SimpleBarChart from "@/components/SimpleBarChart/SimpleBarChart";
 import TwoSimplePieChart from "@/components/TwoSimplePieChart/TwoSimplePieChart";
 import { getAllUser } from "@/utils/getAllUser";
 import { getOrders } from "@/utils/getOrders";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import React from "react";
 
 const page = async() => {
   const users= await getAllUser()
   const orders = await getOrders()
-  console.log(orders)
-  // const user = localStorage.getItem("email");   
-  // <LocalStorage></LocalStorage>
-  const router = useRouter()
-  if(!user){
-    router.push('/login')
-  }
+  console.log(orders) 
+
+ 
   return (
     <div className="max-w-screen-xl mx-auto mt-2 md:mt-4">
       <div className="grid gap-8 grid-cols-1 md:grid-cols-12">
